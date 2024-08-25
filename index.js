@@ -17,6 +17,8 @@ const generateAsyncApiDoc = async function() {
 
 generateAsyncApiDoc();
 
+app.use('/doc', express.static(__dirname + '/public/doc'))
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
