@@ -1,11 +1,11 @@
 const express = require('express');
+const Generator = require('@asyncapi/generator');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 const generateAsyncApiDoc = async function() {
-    const Generator = require('@asyncapi/generator');
-    const path = require('path');
     const generator = new Generator('@asyncapi/html-template', path.resolve(__dirname, 'public/doc'));
     try {
         await generator.generateFromFile('schema.yml');
